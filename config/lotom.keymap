@@ -47,6 +47,12 @@
             layers = <0>;
         };
 
+        bracket_combo {
+            bindings = <&bracket>;
+            key-positions = <22 25>; /* J + ; */
+            layers = <0>;
+        };
+
         equal {
             bindings = <&kp EQUAL>;
             key-positions = <32 33>;
@@ -54,6 +60,13 @@
     };
 
     macros {
+        bracket: bracket {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACKET &kp RIGHT_BRACKET>;
+            label = "BRACKET_PAIR";
+        };
+
         mac_eisu: mac_eisu {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -120,10 +133,10 @@
         ARROW {
             bindings = <
 &trans     &trans
-&kp GRAVE  &kp LC(LS(TAB))         &kp LG(RIGHT)  &kp NUMBER_9             &kp NUMBER_0       &trans  &trans  &trans  &kp RC(LEFT_ARROW)  &kp UP_ARROW    &kp RC(RIGHT_ARROW)  &kp LG(P)
-&kp TAB    &kp LA(LG(LEFT_ARROW))  &kp LG(LEFT)   &kp LG(LA(RIGHT_ARROW))  &kp LEFT_BRACKET   &trans  &trans  &trans  &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW      &kp LG(K)
-&kp LCMD   &kp LG(LS(LEFT_ARROW))  &trans         &kp LG(LS(RIGHT_ARROW))  &kp RIGHT_BRACKET  &trans  &trans  &trans  &kp LEFT_ARROW      &kp UP_ARROW    &kp DOWN             &kp RIGHT
-&trans     &trans                  &trans         &trans                   &trans             &trans  &trans  &trans  &trans              &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &kp LG(GRAVE)           &kp LG(LS(LEFT_BRACKET))   &kp LG(LS(RIGHT_BRACKET))  &kp LA(LEFT_ARROW)   &kp LA(RIGHT_ARROW)  &kp LG(RIGHT_ARROW)
+&trans  &trans  &trans  &trans  &trans  &trans  &kp LG(LEFT_ARROW)      &kp LG(UP_ARROW)           &kp LG(DOWN_ARROW)         &kp LC(GRAVE)        &kp LG(LS(P))        &kp LG(F)
+&trans  &trans  &trans  &trans  &trans  &trans  &kp LG(W)               &kp LG(T)                  &kp LEFT_ARROW             &kp UP_ARROW         &kp DOWN_ARROW       &kp RIGHT_ARROW
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                  &trans                     &trans                     &trans
             >;
 
             sensor-bindings = <
@@ -135,10 +148,10 @@
         NUM {
             bindings = <
 &trans                   &trans
-&kp GRAVE                &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_4  &kp PLUS      &trans  &trans  &kp MINUS     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp MINUS
-&kp SLASH                &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp ASTERISK  &trans  &trans  &kp PLUS      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp PLUS
-&mt LEFT_SHIFT NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD    &trans  &trans  &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL
-&trans                   &trans        &trans        &trans        &trans        &trans  &trans  &kp ENTER     &trans        &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &kp ASTERISK  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &trans        &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &kp EQUAL     &kp PERIOD    &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp PLUS
+&trans  &trans  &trans  &trans  &trans  &trans  &kp MINUS     &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp SLASH
+&trans  &trans  &trans  &trans  &trans  &trans  &trans        &trans        &trans        &trans
             >;
 
             sensor-bindings = <
